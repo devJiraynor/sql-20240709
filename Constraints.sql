@@ -135,3 +135,4 @@ CREATE TABLE default_table (
 );
 
 INSERT INTO default_table (column1) VALUES (99);
+SELECT * FROM default_table;
