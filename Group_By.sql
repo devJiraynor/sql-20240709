@@ -75,4 +75,13 @@ SELECT
     employee_number '사번'
 FROM sale
 GROUP BY employee_number
-HAVING AVG(amount) <= 110000;
+HAVING AVG(amount) <= 100000;
+-- HAVING 평균 <= 100000;
+
+-- 
+SELECT 
+    AVG(amount) '평균', 
+    employee_number '사번'
+FROM sale
+GROUP BY employee_number
+HAVING date < '2024-07-05';
