@@ -80,19 +80,38 @@ LIMIT 0, 10;
 
 -- 고객 삭제
 -- 최종 사용자 (고객 정보)
+-- 고객 테이블에서 지정한 고객(고객 번호에 해당하는)의 레코드를 삭제하는 작업
+-- 필요 추가 데이터 : 고객 번호 (화면에서), 로그인 사용자 아이디 (화면에서)
+SELECT * FROM customer 
+WHERE customer_number = 1 AND charger = 'qwer1234';
 
+DELETE FROM customer WHERE customer_number = 1;
 
 -- 고객 등록
 -- 최종 사용자 (고객 사진, 고객 이름, 생년월일, 담당자, 주소)
+-- 고객 테이블에 레코드(고객 사진, 고객 이름, 지역, 생년월일, 담당자, 주소)를 삽입
+-- 필요 추가 데이터 : 지역 (화면에서)
 
+-- 레코드 삽입시 담당자에 대한 참조 제약 확인
+SELECT * FROM nurse WHERE id = 'qwer1234';
+
+INSERT INTO customer(name, area, charger, profile_image, birth, address)
+VALUES('이영희', '부산광역시', 'qwer1234', null, '590826', '부산광역시 부산진구...'); 
 
 -- 담당자(요양사) 검색
--- 최종 사용자 (이름)
-
+-- 최종 사용자 (이름) => 아이디, 이름, 전화번호
+-- 요양사 테이블에서 이름을 기준으로 입력한 이름과 같은 레코드를 조회
+-- 필요 추가 데이터 : X
+SELECT id, name, tel_number FROM nurse WHERE name = '홍길동';
 
 -- 고객 상세보기
--- 최종 사용자 (고객 정보)
-
+-- 최종 사용자 (고객 정보) => (고객 사진, 고객 이름, 생년 월일, 담당자 이름, 주소)
+-- 고객 테이블에서 특정 고객을 조회하여 반환, 담당자 이름을 반환하기위해 영양사 테이블을 조인
+-- 필요 추가 데이터 : 고객 번호 (화면에서)
+SELECT C.profile_image, C.name, C.birth, N.name, C.address
+FROM customer C INNER JOIN nurse N
+ON C.charger = N.id
+WHERE C.customer_number = 1;
 
 -- 관리 기록 리스트
 -- 최종 사용자 (고객 정보)
