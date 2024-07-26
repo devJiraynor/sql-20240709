@@ -151,6 +151,6 @@ UPDATE customer SET
     profile_image = 'http:///~~~',
     name = '고길동',
     birth = '590830',
-    charger = 1
+    charger = 1,
     address = '부산광역시 부산진구...'
 WHERE customer_number = 1;
