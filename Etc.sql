@@ -42,8 +42,8 @@ SELECT LENGTH(name) / 3 from employee;
 -- 매개변수 중 하나라도 null이면 null을 반환
 SELECT CONCAT(사원이름, 부서명) FROM emplyee_view;
 
--- LEFT(), RIGHT() : 문자열을 왼쪽, 오른쪽에서부터 추출
+-- LEFT(문자열, 길이), RIGHT(문자열, 길이) : 문자열을 왼쪽, 오른쪽에서부터 추출
 SELECT LEFT(사원이름, 2), RIGHT(사원이름, 2) FROM emplyee_view;
 
--- REPLACE() : 특정 문자열을 지정한 문자열로 변경하는 함수
+-- REPLACE(기준문자열, 찾을문자열, 바꿀문자열) : 특정 문자열을 지정한 문자열로 변경하는 함수
 SELECT REPLACE(사원이름, '길동', '순자') FROM emplyee_view;
